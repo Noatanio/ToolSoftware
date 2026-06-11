@@ -1,26 +1,26 @@
-name: Build C++ Application (Multi-Platform)
+name: Build C++ Application
 
 on:
   push:
-    branches: [ main ]
+    branches: [ Français ]
   pull_request:
-    branches: [ main ]
+    branches: [ Français ]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v3
     
-    - name: Build on ${{ matrix.os }}
-      run: g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+    
+    - name: Build with g++
+      run: g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware
     
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ToolSoftware-${{ matrix.os }}
-        path: ToolSoftware*
+        name: ToolSoftware-linux
+        path: ToolSoftware

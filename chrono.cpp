@@ -16,7 +16,9 @@ void chronomètre() {
     cin.get();
 
     auto start = chrono::steady_clock::now();
-    cout << "Appuyez sur entrer pour l'arrêter...";
+    cout << "Appuyez sur entrer pour l'arrêter..." << endl;
+
+    cin.get();
 
     auto stop = chrono::steady_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>( stop - start ).count();
@@ -28,7 +30,7 @@ void chronomètre() {
     cout << h << "h "
     << m << "m "
     << s << "s "
-    << ms << "ms" << endl;
+    << ms << "ms" << endl << endl;
     
     char t;
     cout << "Encore ?(y/n)" << endl;
@@ -77,8 +79,9 @@ void Ochrono() {
     cout << "Séléctionnez une option" << endl;
     cout << "1. chrono" << endl;
     cout << "2. Minuteur" << endl;
-    cout << "3. Horloge" << endl;
+    cout << "3. Horloge" << endl << endl;
     cin >> x;
+    cout << endl;
 
     switch(x) {
         case 1:

@@ -41,8 +41,6 @@ void operate() {
     cin >> m;
     if( m == 'y' ) {
         operate();
-    }else{
-        // Return to main
     }
 }
 

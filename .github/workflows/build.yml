@@ -8,19 +8,37 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     
     steps:
     - uses: actions/checkout@v5
     
-    - name: Install dependencies
+    - name: Install dependencies (Linux)
+      if: runner.os == 'Linux'
       run: sudo apt-get update && sudo apt-get install -y build-essential
     
-    - name: Build with g++
-      run: g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o toolsoftware-app
+    - name: Build with g++ (Linux)
+      if: runner.os == 'Linux'
+      run: g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware
     
-    - name: Upload artifact
+    - name: Build with g++ (Windows)
+      if: runner.os == 'Windows'
+      run: g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware.exe
+      shell: bash
+    
+    - name: Upload artifact (Linux)
+      if: runner.os == 'Linux'
       uses: actions/upload-artifact@v4
       with:
         name: ToolSoftware-linux
         path: ToolSoftware
+    
+    - name: Upload artifact (Windows)
+      if: runner.os == 'Windows'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ToolSoftware-windows
+        path: ToolSoftware.exe

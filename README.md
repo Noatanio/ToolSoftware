@@ -10,10 +10,10 @@ Vous pouvez compiler le projet avec g++ en utilisant la commande :
 
 ``g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware.exe``
 
+Puis l'éxecuter avec ``.\ToolSoftware``
+
 ## Pour Linux :
 
-``g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o toolsoftware``
+``g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware``
 
-Puis lancez l'application avec :
-
-``./toolsoftware``
+Puis l'éxecuter avec ``./ToolSoftware``

@@ -6,10 +6,14 @@ Il contient plusieurs programmes comme une calculatrice, une liste de taches, un
 
 Vous pouvez compiler le projet avec g++ en utilisant la commande :
 
-Pour Windows :
+## Pour Windows :
 
-g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware.exe
+``g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware.exe``
 
-Pour Linux :
+## Pour Linux :
 
-g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o ToolSoftware
+``g++ main.cpp file.cpp chrono.cpp calculator.cpp todolist.cpp -o toolsoftware``
+
+Puis lancez l'application avec :
+
+``./toolsoftware``
